@@ -1,4 +1,4 @@
-# netflix_ui_cloe
+# netflix_ui_clone
 
 A new Flutter application.
 
