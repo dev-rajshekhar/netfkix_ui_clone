@@ -6,12 +6,18 @@ class ContinueWatching extends StatelessWidget {
   final String duration;
   final String name;
 
-  const ContinueWatching({Key key, this.imageUrl, this.duration, this.name})
+  const ContinueWatching(
+      {Key key,
+      @required this.imageUrl,
+      @required this.duration,
+      @required this.name,
+     })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(left: 10, right: 10),
       height: 160,
       width: 90,
       child: Column(
@@ -31,17 +37,53 @@ class ContinueWatching extends StatelessWidget {
                     duration,
                     style: TextStyle(
                         fontWeight: FontWeight.w200,
-                        fontSize: 10,
+                        fontSize: 18,
                         color: AppColors.white),
                   )),
-
             ],
           ),
-          LinearProgressIndicator(
-            backgroundColor: AppColors.redColor,
-
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              trackShape: RectangularSliderTrackShape(),
+              trackHeight: 4.0,
+              thumbColor: Colors.redAccent,
+              thumbShape: RoundSliderThumbShape(enabledThumbRadius: 0.0),
+              overlayShape: RoundSliderOverlayShape(overlayRadius: 0.0),
+            ),
+            child: Slider(
+              onChanged: (value) {},
+              activeColor: AppColors.redColor,
+              inactiveColor: AppColors.searchBarBg,
+              value: .8,
+            ),
+          ),
+          Container(
+            color: AppColors.searchBarBg,
+            height: 30,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.info_outline,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {},
+                    iconSize: 20,
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.more_vert,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {},
+                  iconSize: 20,
+                )
+              ],
+            ),
           )
-
         ],
       ),
     );

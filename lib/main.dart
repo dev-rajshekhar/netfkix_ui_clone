@@ -3,6 +3,7 @@ import 'package:netflix_ui_cloe/routes.dart';
 
 void main() {
   runApp(MyApp(
+
     appRoutes: AppRoutes(),
   ));
 }
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: appRoutes.onGenerateRoute,
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:netflix_ui_cloe/assets.dart';
 import 'package:netflix_ui_cloe/colors.dart';
 import 'package:netflix_ui_cloe/data/movie_content.dart';
+import 'package:netflix_ui_cloe/screen/widgets/continue_watchin_item.dart';
 import 'package:netflix_ui_cloe/screen/widgets/home_screen_header.dart';
 import 'package:netflix_ui_cloe/screen/widgets/my_list_button.dart';
 import 'package:netflix_ui_cloe/screen/widgets/play_pause_button.dart';
 import 'package:netflix_ui_cloe/screen/widgets/preview_movies.dart';
+import 'package:netflix_ui_cloe/screen/widgets/trending_in_country.dart';
 import 'package:netflix_ui_cloe/screen/widgets/trending_now.dart';
 
 class DashBoard extends StatefulWidget {
@@ -23,12 +25,12 @@ class _DashBoardState extends State<DashBoard> {
         children: [
           Stack(
             children: [
-
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.6,
                 child: Image(
-                  image: NetworkImage("https://wallpapercave.com/wp/wp2040377.png",
+                  image: NetworkImage(
+                    "https://wallpapercave.com/wp/wp2040377.png",
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -67,10 +69,7 @@ class _DashBoardState extends State<DashBoard> {
                   ],
                 ),
               ),
-              Positioned(
-                  left: 10,
-                  right: 10,
-                  child:Header()),
+              Positioned(left: 10, right: 10, child: Header()),
             ],
           ),
           SizedBox(
@@ -79,12 +78,6 @@ class _DashBoardState extends State<DashBoard> {
                 title: "Preview",
                 previewMoviesList: getPreviewList,
               )),
-          SizedBox(
-              height: 180,
-              child: TrendingNow(
-                title: "Netflix Original",
-                imageList: getNetflixOriginal,
-              )),
 
           SizedBox(
               height: 180,
@@ -92,14 +85,66 @@ class _DashBoardState extends State<DashBoard> {
                 title: "Trending Now",
                 imageList: getTrendingNow,
               )),
+
+
+          Padding(
+            padding: const EdgeInsets.only(left:20,top: 10, bottom: 10),
+            child: Text(
+              "Continue Watching",
+              style: TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          Container(
+            height: 160,
+            child: Expanded(
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: getContinueWatching.length,
+                    itemBuilder: (context, index) {
+                      return ContinueWatching(
+                        name: getContinueWatching[index].name,
+                        duration: getContinueWatching[index].duration,
+                        imageUrl: getContinueWatching[index].imageUrl,
+                      );
+                    })),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left:20,top: 10, bottom: 10),
+            child: Text(
+              "Trending In India",
+              style: TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          Container(
+            height: 160,
+            child: Expanded(
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: getTrendingInIndia.length,
+                    itemBuilder: (context, index) {
+                      return TrendingInCountry(
+                        name: getTrendingInIndia[index].name,
+                        positionImage: getTrendingInIndia[index].trendingPositionImg,
+                        imageUrl: getTrendingInIndia[index].imageUrl,
+                      );
+                    })),
+          ),
           SizedBox(
               height: 180,
               child: TrendingNow(
                 title: "Netflix Original",
                 imageList: getNetflixOriginal,
               )),
-
-
         ],
       ),
     );
