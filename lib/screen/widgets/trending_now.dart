@@ -33,7 +33,8 @@ class TrendingNow extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        Expanded(
+        Container(
+          height: 120,
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: imageList.length,

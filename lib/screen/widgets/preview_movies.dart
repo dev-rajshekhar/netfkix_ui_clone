@@ -23,8 +23,10 @@ class PreviewMovies extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10,),
-        Expanded(
+        Container(
+          height: 120,
           child: ListView.builder(
+            shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: previewMoviesList.length,
               itemBuilder: (context, index) {
@@ -43,7 +45,7 @@ class PreviewMovies extends StatelessWidget {
                                 backgroundImage: NetworkImage(previewMoviesList[index].imageUrl),
                               )),
                           Positioned(
-                            bottom: 0,
+                            bottom: 10,
                               child: Image(image: NetworkImage(previewMoviesList[index].imageLogoUrl),height: 20,width: 100,fit: BoxFit.cover,alignment: Alignment.center,)),
                         ],
                       )

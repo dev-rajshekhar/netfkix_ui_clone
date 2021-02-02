@@ -83,78 +83,28 @@ class _DashBoardState extends State<DashBoard> {
               Positioned(left: 10, right: 10, child: Header()),
             ],
           ),
-          SizedBox(
-              height: 140,
-              child: PreviewMovies(
-                title: "Preview",
-                previewMoviesList: getPreviewList,
-              )),
-          SizedBox(
-              height: 180,
-              child: TrendingNow(
-                title: "Trending Now",
-                imageList: getTrendingNow,
-              )),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
-            child: Text(
-              "Continue Watching",
-              style: TextStyle(
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
+          PreviewMovies(
+            title: "Preview",
+            previewMoviesList: getPreviewList,
           ),
-          Container(
-            height: 160,
-            child: Expanded(
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: getContinueWatching.length,
-                    itemBuilder: (context, index) {
-                      return ContinueWatching(
-                        name: getContinueWatching[index].name,
-                        duration: getContinueWatching[index].duration,
-                        imageUrl: getContinueWatching[index].imageUrl,
-                      );
-                    })),
+          TrendingInCountry(
+            title: "Trending In India",
+            trendingList: getTrendingInIndia,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
-            child: Text(
-              "Trending In India",
-              style: TextStyle(
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
+          TrendingNow(
+            title: "Trending Now",
+            imageList: getTrendingNow,
           ),
-          Container(
-            height: 160,
-            child: Expanded(
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: getTrendingInIndia.length,
-                    itemBuilder: (context, index) {
-                      return TrendingInCountry(
-                        name: getTrendingInIndia[index].name,
-                        positionImage:
-                            getTrendingInIndia[index].trendingPositionImg,
-                        imageUrl: getTrendingInIndia[index].imageUrl,
-                      );
-                    })),
+          ContinueWatching(
+            title: "Continue Watching",
+            continueWatchingList: getContinueWatching,
           ),
-          SizedBox(
-              height: 180,
-              child: TrendingNow(
-                title: "Netflix Original",
-                imageList: getNetflixOriginal,
-                onItemClick: onItemClick,
-              )),
+
+          TrendingNow(
+            title: "Netflix Original",
+            imageList: getNetflixOriginal,
+            onItemClick: onItemClick,
+          ),
         ],
       ),
     );
