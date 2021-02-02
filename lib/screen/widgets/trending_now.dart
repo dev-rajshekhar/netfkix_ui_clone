@@ -5,14 +5,16 @@ import 'package:netflix_ui_cloe/data/movie_content.dart';
 class TrendingNow extends StatelessWidget {
   final String title;
   final List<MovieContent> imageList;
+  final Function onItemClick;
 
-  const TrendingNow({Key key, String this.title, this.imageList})
+  const TrendingNow({Key key, String this.title, this.imageList,this.onItemClick})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
       children: [
         SizedBox(
           height: 10,
@@ -35,16 +37,23 @@ class TrendingNow extends StatelessWidget {
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: imageList.length,
+              shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
-                  child: Container(
-                      height: 120,
-                      width: 90,
-                      child: Image(
-                        image: NetworkImage(imageList[index].imageUrl),
-                        fit: BoxFit.cover,
-                      )),
+                  child: InkWell(
+                    onTap: (){onItemClick(imageList[index],false,true);},
+                    onLongPress: (){
+
+                    },
+                    child: Container(
+                        height: 120,
+                        width: 90,
+                        child: Image(
+                          image: NetworkImage(imageList[index].imageUrl),
+                          fit: BoxFit.cover,
+                        )),
+                  ),
                 );
               }),
         )

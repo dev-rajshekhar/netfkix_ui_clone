@@ -22,26 +22,13 @@ class ContinueWatching extends StatelessWidget {
       width: 90,
       child: Column(
         children: [
-          Stack(
-            children: [
-              Image(
-                image: NetworkImage(imageUrl),
-                fit: BoxFit.cover,
-                height: 120,
-              ),
-              Positioned(
-                  bottom: 2,
-                  left: 10,
-                  right: 10,
-                  child: Text(
-                    duration,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w200,
-                        fontSize: 18,
-                        color: AppColors.white),
-                  )),
-            ],
+          Image(
+            image: NetworkImage(imageUrl),
+            fit: BoxFit.cover,
+            height: 120,
+            width: 90,
           ),
+
           SliderTheme(
             data: SliderTheme.of(context).copyWith(
               trackShape: RectangularSliderTrackShape(),
@@ -64,6 +51,7 @@ class ContinueWatching extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
+                  flex: 1,
                   child: IconButton(
                     icon: Icon(
                       Icons.info_outline,

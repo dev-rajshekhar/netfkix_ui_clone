@@ -4,6 +4,7 @@ import 'package:netflix_ui_cloe/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
 
+
   @override
   Widget build(BuildContext context) {
     return Container(

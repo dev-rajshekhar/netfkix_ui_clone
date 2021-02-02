@@ -12,15 +12,14 @@ class MyApp extends StatelessWidget {
   const MyApp({Key key, this.appRoutes}) : super(key: key);
   final AppRoutes appRoutes;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Netflix Clone',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRoutes.onGenerateRoute,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
     );
   }

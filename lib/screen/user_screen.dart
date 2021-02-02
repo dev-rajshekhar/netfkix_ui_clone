@@ -8,10 +8,8 @@ class UserScreen extends StatefulWidget {
   @override
   _UserScreenState createState() => _UserScreenState();
 }
-
 class _UserScreenState extends State<UserScreen> {
   final userList = whoIsWatchingList;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,6 +25,9 @@ class _UserScreenState extends State<UserScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SizedBox(
+                    height: 60,
+                  ),
                   const Text(
                     "Who's Watching?",
                     style: TextStyle(
@@ -38,32 +39,25 @@ class _UserScreenState extends State<UserScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Table(
-                    children: [
-                      TableRow(children: [
-                        WhoIsWatchingItem(
-                            userImage: userList[0].imageUrl,
-                            userName: userList[0].name),
-                        WhoIsWatchingItem(
-                            userImage: userList[1].imageUrl,
-                            userName: userList[1].name),
-                      ]),
-                      TableRow(children: [
-                        WhoIsWatchingItem(
-                            userImage: userList[2].imageUrl,
-                            userName: userList[2].name),
-                        WhoIsWatchingItem(
-                            userImage: userList[3].imageUrl,
-                            userName: userList[3].name),
-                      ]),
-                      TableRow(children: [
-                        WhoIsWatchingItem(
-                            userImage: userList[4].imageUrl,
-                            userName: userList[4].name),
-                        Container()
-                      ])
-                    ],
+                  Container(
+                    child: GridView.builder(
+
+                        padding: EdgeInsets.only(left: 60, right: 60,bottom: 60 ),
+                        shrinkWrap: true,
+                        itemCount: userList.length,
+                        primary: false,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 8,
+                          mainAxisSpacing: 2,
+                         ),
+                        itemBuilder: (context, index) {
+                          return WhoIsWatchingItem(
+                              userImage: userList[index].imageUrl,
+                              userName: userList[index].name);
+                        }),
                   )
+
                 ],
               ),
             ),

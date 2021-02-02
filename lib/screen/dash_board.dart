@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_ui_cloe/assets.dart';
 import 'package:netflix_ui_cloe/colors.dart';
 import 'package:netflix_ui_cloe/data/movie_content.dart';
 import 'package:netflix_ui_cloe/screen/widgets/continue_watchin_item.dart';
@@ -18,6 +17,18 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
+    void onItemClick(
+        MovieContent movieContent, bool isLongPressed, bool isTapped) {
+      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Item CLicked"),duration: Duration(milliseconds: 300),));
+      // showBottomSheet(context: context, builder: (context){
+      //   return Container(
+      //     height: 150,
+      //     color: AppColors.searchBarBg,
+      //
+      //   );
+      // });
+    }
+
     return Scaffold(
       backgroundColor: AppColors.bgGrey,
       body: ListView(
@@ -78,17 +89,14 @@ class _DashBoardState extends State<DashBoard> {
                 title: "Preview",
                 previewMoviesList: getPreviewList,
               )),
-
           SizedBox(
               height: 180,
               child: TrendingNow(
                 title: "Trending Now",
                 imageList: getTrendingNow,
               )),
-
-
           Padding(
-            padding: const EdgeInsets.only(left:20,top: 10, bottom: 10),
+            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
             child: Text(
               "Continue Watching",
               style: TextStyle(
@@ -114,7 +122,7 @@ class _DashBoardState extends State<DashBoard> {
                     })),
           ),
           Padding(
-            padding: const EdgeInsets.only(left:20,top: 10, bottom: 10),
+            padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
             child: Text(
               "Trending In India",
               style: TextStyle(
@@ -134,7 +142,8 @@ class _DashBoardState extends State<DashBoard> {
                     itemBuilder: (context, index) {
                       return TrendingInCountry(
                         name: getTrendingInIndia[index].name,
-                        positionImage: getTrendingInIndia[index].trendingPositionImg,
+                        positionImage:
+                            getTrendingInIndia[index].trendingPositionImg,
                         imageUrl: getTrendingInIndia[index].imageUrl,
                       );
                     })),
@@ -144,6 +153,7 @@ class _DashBoardState extends State<DashBoard> {
               child: TrendingNow(
                 title: "Netflix Original",
                 imageList: getNetflixOriginal,
+                onItemClick: onItemClick,
               )),
         ],
       ),
