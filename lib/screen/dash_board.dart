@@ -9,6 +9,8 @@ import 'package:netflix_ui_cloe/screen/widgets/preview_movies.dart';
 import 'package:netflix_ui_cloe/screen/widgets/trending_in_country.dart';
 import 'package:netflix_ui_cloe/screen/widgets/trending_now.dart';
 
+import 'bottom_sheet_movie.dart';
+
 class DashBoard extends StatefulWidget {
   @override
   _DashBoardState createState() => _DashBoardState();
@@ -19,93 +21,95 @@ class _DashBoardState extends State<DashBoard> {
   Widget build(BuildContext context) {
     void onItemClick(
         MovieContent movieContent, bool isLongPressed, bool isTapped) {
-      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Item CLicked"),duration: Duration(milliseconds: 300),));
-      // showBottomSheet(context: context, builder: (context){
-      //   return Container(
-      //     height: 150,
-      //     color: AppColors.searchBarBg,
-      //
-      //   );
-      // });
+      showModalBottomSheet(
+          backgroundColor: Colors.transparent,
+          useRootNavigator: true,
+          context: context,
+          builder: (context) {
+            return BottomSheetMovieItem(
+              movieContent: movieContent,
+            );
+          });
     }
 
-    return Scaffold(
-      backgroundColor: AppColors.bgGrey,
-      body: ListView(
-        shrinkWrap: true,
-        children: [
-          Stack(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.6,
-                child: Image(
-                  image: NetworkImage(
-                    "https://wallpapercave.com/wp/wp2040377.png",
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.bgGrey,
+        body: ListView(
+          shrinkWrap: true,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  child: Image(
+                    image: NetworkImage(
+                      "https://wallpapercave.com/wp/wp2040377.png",
+                    ),
+                    fit: BoxFit.cover,
                   ),
-                  fit: BoxFit.cover,
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: FractionalOffset.topCenter,
-                        end: FractionalOffset.bottomCenter,
-                        colors: [
-                      AppColors.inactiveGrey.withOpacity(0.0),
-                      AppColors.inactiveGrey
-                    ])),
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.6,
-              ),
-              Positioned(
-                left: 30,
-                right: 30,
-                bottom: 10,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const MyListButton(
-                      icon: Icons.add,
-                      title: "My List",
-                    ),
-                    const PlayPauseButton(
-                      title: "Play",
-                      icon: Icons.play_arrow,
-                    ),
-                    const MyListButton(
-                      icon: Icons.info_outline,
-                      title: "Info",
-                    ),
-                  ],
+                Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: FractionalOffset.topCenter,
+                          end: FractionalOffset.bottomCenter,
+                          colors: [
+                        AppColors.inactiveGrey.withOpacity(0.0),
+                        AppColors.inactiveGrey
+                      ])),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.6,
                 ),
-              ),
-              Positioned(left: 10, right: 10, child: Header()),
-            ],
-          ),
-          PreviewMovies(
-            title: "Preview",
-            previewMoviesList: getPreviewList,
-          ),
-          TrendingInCountry(
-            title: "Trending In India",
-            trendingList: getTrendingInIndia,
-          ),
-          TrendingNow(
-            title: "Trending Now",
-            imageList: getTrendingNow,
-          ),
-          ContinueWatching(
-            title: "Continue Watching",
-            continueWatchingList: getContinueWatching,
-          ),
-
-          TrendingNow(
-            title: "Netflix Original",
-            imageList: getNetflixOriginal,
-            onItemClick: onItemClick,
-          ),
-        ],
+                Positioned(
+                  left: 30,
+                  right: 30,
+                  bottom: 10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const MyListButton(
+                        icon: Icons.add,
+                        title: "My List",
+                      ),
+                      const PlayPauseButton(
+                        title: "Play",
+                        icon: Icons.play_arrow,
+                      ),
+                      const MyListButton(
+                        icon: Icons.info_outline,
+                        title: "Info",
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(left: 10, right: 10, child: Header()),
+              ],
+            ),
+            PreviewMovies(
+              title: "Preview",
+              previewMoviesList: getPreviewList,
+            ),
+            TrendingInCountry(
+              title: "Trending In India",
+              trendingList: getTrendingInIndia,
+            ),
+            TrendingNow(
+              title: "Trending Now",
+              imageList: getTrendingNow,
+            ),
+            ContinueWatching(
+              title: "Continue Watching",
+              continueWatchingList: getContinueWatching,
+            ),
+            TrendingNow(
+              title: "Netflix Original",
+              imageList: getNetflixOriginal,
+              onItemClick: onItemClick,
+            ),
+          ],
+        ),
       ),
     );
   }
