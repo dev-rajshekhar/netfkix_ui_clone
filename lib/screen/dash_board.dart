@@ -92,12 +92,13 @@ class _DashBoardState extends State<DashBoard> {
               previewMoviesList: getPreviewList,
             ),
             TrendingInCountry(
-              title: "Trending In India",
-              trendingList: getTrendingInIndia,
-            ),
+                title: "Trending In India",
+                trendingList: getTrendingInIndia,
+                onItemClick: onItemClick),
             TrendingNow(
               title: "Trending Now",
               imageList: getTrendingNow,
+              onItemClick: onItemClick,
             ),
             ContinueWatching(
               title: "Continue Watching",

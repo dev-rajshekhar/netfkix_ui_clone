@@ -14,7 +14,6 @@ static const  Color redColor = Color(0xFFFF0000);
 static const  Color netflixLogoColor = Color(0xFFb30000);
 
 
-
 static const  Color bgGrey = Color(0xFF191919);
 static const  Color inactiveGrey = Color(0xFF727272);
 static const  Color headerBarBg = Color(0xFF1b1b1b);

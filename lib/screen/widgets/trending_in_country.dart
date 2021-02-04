@@ -5,9 +5,13 @@ import 'package:netflix_ui_cloe/data/movie_content.dart';
 class TrendingInCountry extends StatelessWidget {
   final List<MovieContent> trendingList;
   final String title;
+  final Function onItemClick;
 
   const TrendingInCountry(
-      {Key key, @required this.trendingList, @required this.title})
+      {Key key,
+      @required this.trendingList,
+      @required this.title,
+      this.onItemClick})
       : super(key: key);
 
   @override
@@ -40,33 +44,38 @@ class TrendingInCountry extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder: (_, index) {
                 MovieContent movieContent = trendingList[index];
-                return Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
-                  height: 160,
-                  width: 120,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        left: 20,
-                        child: Image(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(movieContent.imageUrl),
-                          height: 160,
-                          width: 120,
 
+                return InkWell(
+                  onTap: () {
+                    onItemClick(movieContent, false, true);
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10, right: 10),
+                    height: 160,
+                    width: 120,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          left: 20,
+                          child: Image(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(movieContent.imageUrl),
+                            height: 160,
+                            width: 120,
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        child: Image(
-                          fit: BoxFit.fill,
-                          image: AssetImage(movieContent.trendingPositionImg),
-                          color: AppColors.white,
-                          height: 120,
-                          width: 40,
+                        Positioned(
+                          bottom: 0,
+                          child: Image(
+                            fit: BoxFit.fill,
+                            image: AssetImage(movieContent.trendingPositionImg),
+                            color: AppColors.white,
+                            height: 120,
+                            width: 40,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               }),
