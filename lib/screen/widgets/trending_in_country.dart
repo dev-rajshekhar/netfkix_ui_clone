@@ -53,6 +53,7 @@ class TrendingInCountry extends StatelessWidget {
                           image: NetworkImage(movieContent.imageUrl),
                           height: 160,
                           width: 120,
+
                         ),
                       ),
                       Positioned(
