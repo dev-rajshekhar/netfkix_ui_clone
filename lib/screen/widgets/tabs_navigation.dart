@@ -17,22 +17,21 @@ class TabsItem {
           icon: Icon(Icons.home),
           label: "Home",
         ),
-        TabsItem(
-            page: Search(), icon: Icon(Icons.search), label: "Search"),
+        TabsItem(page: Search(), icon: Icon(Icons.search), label: "Search"),
         TabsItem(
           page: ComingSoon(),
           icon: Icon(Icons.queue),
           label: "Coming soon",
         ),
-    TabsItem(
-      page:Download(),
-      icon: Icon(Icons.download_outlined),
-      label: "Coming soon",
-    ),
-    TabsItem(
-      page:Download(),
-      icon: Icon(Icons.menu),
-      label: "More",
-    ),
+        TabsItem(
+          page: Download(),
+          icon: Icon(Icons.download_outlined),
+          label: "Coming soon",
+        ),
+        TabsItem(
+          page: Download(),
+          icon: Icon(Icons.menu),
+          label: "More",
+        ),
       ];
 }

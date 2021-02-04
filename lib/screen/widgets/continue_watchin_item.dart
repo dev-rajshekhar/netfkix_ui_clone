@@ -38,66 +38,68 @@ class ContinueWatching extends StatelessWidget {
               shrinkWrap: true,
               itemCount: continueWatchingList.length,
               itemBuilder: (_, index) {
-            MovieContent content=continueWatchingList[index];
-            return Container(
-              margin: EdgeInsets.only(left: 10, right: 10),
-              height: 160,
-              width: 90,
-              child: Column(
-                children: [
-                  Image(
-                    image: NetworkImage(content.imageUrl),
-                    fit: BoxFit.cover,
-                    height: 120,
-                    width: 90,
-                  ),
-                  SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      trackShape: RectangularSliderTrackShape(),
-                      trackHeight: 4.0,
-                      thumbColor: Colors.redAccent,
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 0.0),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 0.0),
-                    ),
-                    child: Slider(
-                      onChanged: (value) {},
-                      activeColor: AppColors.redColor,
-                      inactiveColor: AppColors.searchBarBg,
-                      value: .8,
-                    ),
-                  ),
-                  Container(
-                    color: AppColors.searchBarBg,
-                    height: 30,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(
-                          flex: 1,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.info_outline,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                            iconSize: 20,
-                          ),
+                MovieContent content = continueWatchingList[index];
+                return Container(
+                  margin: EdgeInsets.only(left: 10, right: 10),
+                  height: 160,
+                  width: 90,
+                  child: Column(
+                    children: [
+                      Image(
+                        image: NetworkImage(content.imageUrl),
+                        fit: BoxFit.cover,
+                        height: 120,
+                        width: 90,
+                      ),
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          trackShape: RectangularSliderTrackShape(),
+                          trackHeight: 4.0,
+                          thumbColor: Colors.redAccent,
+                          thumbShape:
+                              RoundSliderThumbShape(enabledThumbRadius: 0.0),
+                          overlayShape:
+                              RoundSliderOverlayShape(overlayRadius: 0.0),
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.more_vert,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                          iconSize: 20,
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            );
-          }),
+                        child: Slider(
+                          onChanged: (value) {},
+                          activeColor: AppColors.redColor,
+                          inactiveColor: AppColors.searchBarBg,
+                          value: .8,
+                        ),
+                      ),
+                      Container(
+                        color: AppColors.searchBarBg,
+                        height: 30,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.info_outline,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {},
+                                iconSize: 20,
+                              ),
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.more_vert,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {},
+                              iconSize: 20,
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }),
         )
       ],
     );

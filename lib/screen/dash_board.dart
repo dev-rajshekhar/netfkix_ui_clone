@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_ui_cloe/app_constanst.dart';
 import 'package:netflix_ui_cloe/colors.dart';
 import 'package:netflix_ui_cloe/data/movie_content.dart';
 import 'package:netflix_ui_cloe/screen/widgets/continue_watchin_item.dart';
@@ -71,15 +72,15 @@ class _DashBoardState extends State<DashBoard> {
                     children: [
                       const MyListButton(
                         icon: Icons.add,
-                        title: "My List",
+                        title: AppConstants.MyList,
                       ),
                       const PlayPauseButton(
-                        title: "Play",
+                        title: AppConstants.Pause,
                         icon: Icons.play_arrow,
                       ),
                       const MyListButton(
                         icon: Icons.info_outline,
-                        title: "Info",
+                        title: AppConstants.Info,
                       ),
                     ],
                   ),
@@ -88,24 +89,24 @@ class _DashBoardState extends State<DashBoard> {
               ],
             ),
             PreviewMovies(
-              title: "Preview",
+              title: AppConstants.Preview,
               previewMoviesList: getPreviewList,
             ),
             TrendingInCountry(
-                title: "Trending In India",
+                title: AppConstants.TredingInIndia,
                 trendingList: getTrendingInIndia,
                 onItemClick: onItemClick),
             TrendingNow(
-              title: "Trending Now",
+              title: AppConstants.TrendingNow,
               imageList: getTrendingNow,
               onItemClick: onItemClick,
             ),
             ContinueWatching(
-              title: "Continue Watching",
+              title: AppConstants.ContinueWatching,
               continueWatchingList: getContinueWatching,
             ),
             TrendingNow(
-              title: "Netflix Original",
+              title: AppConstants.NetflixOriginal,
               imageList: getNetflixOriginal,
               onItemClick: onItemClick,
             ),

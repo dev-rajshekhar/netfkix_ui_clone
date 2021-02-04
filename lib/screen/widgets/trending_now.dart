@@ -7,7 +7,8 @@ class TrendingNow extends StatelessWidget {
   final List<MovieContent> imageList;
   final Function onItemClick;
 
-  const TrendingNow({Key key, String this.title, this.imageList,this.onItemClick})
+  const TrendingNow(
+      {Key key, String this.title, this.imageList, this.onItemClick})
       : super(key: key);
 
   @override
@@ -43,10 +44,10 @@ class TrendingNow extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: InkWell(
-                    onTap: (){onItemClick(imageList[index],false,true);},
-                    onLongPress: (){
-
+                    onTap: () {
+                      onItemClick(imageList[index], false, true);
                     },
+                    onLongPress: () {},
                     child: Container(
                         height: 120,
                         width: 90,
