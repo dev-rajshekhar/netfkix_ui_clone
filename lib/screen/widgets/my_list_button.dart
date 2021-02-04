@@ -19,10 +19,7 @@ class MyListButton extends StatelessWidget {
         ),
         Text(
           title,
-          style: TextStyle(
-              color: AppColors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w500),
+          style: Theme.of(context).textTheme.headline6,
         )
       ],
     );

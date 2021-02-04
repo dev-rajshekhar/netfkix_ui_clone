@@ -24,11 +24,7 @@ class TrendingNow extends StatelessWidget {
           padding: EdgeInsets.only(left: 20),
           child: Text(
             title,
-            style: TextStyle(
-              color: AppColors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
+            style: Theme.of(context).textTheme.headline1,
           ),
         ),
         SizedBox(

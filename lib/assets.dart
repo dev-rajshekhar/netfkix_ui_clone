@@ -13,7 +13,4 @@ class Assets {
   static const String trending_three = '${_images}3.png';
   static const String trending_four = '${_images}4.png';
   static const String trending_five = '${_images}five.png';
-
-
-
 }

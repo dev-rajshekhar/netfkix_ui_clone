@@ -22,15 +22,17 @@ class _DashBoardState extends State<DashBoard> {
   Widget build(BuildContext context) {
     void onItemClick(
         MovieContent movieContent, bool isLongPressed, bool isTapped) {
-      showModalBottomSheet(
-          backgroundColor: Colors.transparent,
-          useRootNavigator: true,
-          context: context,
-          builder: (context) {
-            return BottomSheetMovieItem(
-              movieContent: movieContent,
-            );
-          });
+      if (isTapped) {
+        showModalBottomSheet(
+            backgroundColor: Colors.transparent,
+            useRootNavigator: true,
+            context: context,
+            builder: (context) {
+              return BottomSheetMovieItem(
+                movieContent: movieContent,
+              );
+            });
+      }
     }
 
     return SafeArea(

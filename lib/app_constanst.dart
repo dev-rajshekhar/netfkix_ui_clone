@@ -11,6 +11,7 @@ class AppConstants {
   static const String Info = "Info";
   static const String TvShows = "Tv Shows";
   static const String Movies = "Movies";
+  static const String DetailsInfo = "Details & Info";
 
   static var TrednigNow;
 }

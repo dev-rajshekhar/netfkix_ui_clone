@@ -24,14 +24,7 @@ class TrendingInCountry extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(left: 20),
-          child: Text(
-            title,
-            style: TextStyle(
-              color: AppColors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
-          ),
+          child: Text(title, style: Theme.of(context).textTheme.headline1),
         ),
         SizedBox(
           height: 10,

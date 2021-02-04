@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_ui_cloe/app_constanst.dart';
 import 'package:netflix_ui_cloe/colors.dart';
 import 'package:netflix_ui_cloe/data/movie_content.dart';
 import 'package:netflix_ui_cloe/screen/widgets/my_list_button.dart';
@@ -29,10 +30,7 @@ class BottomSheetMovieItem extends StatelessWidget {
                     children: [
                       Text(
                         movieContent.name,
-                        style: TextStyle(
-                            color: AppColors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       Icon(Icons.close, color: AppColors.white, size: 25)
                     ],
@@ -42,24 +40,15 @@ class BottomSheetMovieItem extends StatelessWidget {
                     children: [
                       Text(
                         "2017",
-                        style: TextStyle(
-                            color: AppColors.inactiveGrey,
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal),
+                        style: Theme.of(context).textTheme.caption,
                       ),
                       Text(
                         "16+",
-                        style: TextStyle(
-                            color: AppColors.inactiveGrey,
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal),
+                        style: Theme.of(context).textTheme.caption,
                       ),
                       Text(
                         "2h14m",
-                        style: TextStyle(
-                            color: AppColors.inactiveGrey,
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal),
+                        style: Theme.of(context).textTheme.caption,
                       )
                     ],
                   ),
@@ -67,10 +56,7 @@ class BottomSheetMovieItem extends StatelessWidget {
                     child: Text(
                       "Summaries. A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby. Peaky Blinders is an English television crime drama set in 1920s Birmingham, England in the aftermath of World War I.",
                       maxLines: 4,
-                      style: TextStyle(
-                          color: AppColors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal),
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   )
                 ],
@@ -90,15 +76,15 @@ class BottomSheetMovieItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             PlayPauseButton(
-              title: "Play",
+              title: AppConstants.Play,
               icon: Icons.play_arrow,
             ),
             MyListButton(
               icon: Icons.add,
-              title: "My List",
+              title: AppConstants.MyList,
             ),
             MyListButton(
-              title: "Info",
+              title: AppConstants.Info,
               icon: Icons.info_outline,
             )
           ],
@@ -121,11 +107,8 @@ class BottomSheetMovieItem extends StatelessWidget {
                 color: AppColors.white,
               ),
               Text(
-                "Details & Info",
-                style: TextStyle(
-                    color: AppColors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal),
+                AppConstants.DetailsInfo,
+                style: Theme.of(context).textTheme.subtitle2,
               ),
             ]),
             Icon(
@@ -139,7 +122,7 @@ class BottomSheetMovieItem extends StatelessWidget {
     }
 
     return Container(
-      height: 300,
+      height: 260,
       child: Column(
         children: [
           MovieeInfoContainer(),

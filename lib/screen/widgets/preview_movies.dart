@@ -6,50 +6,60 @@ class PreviewMovies extends StatelessWidget {
   final String title;
   final List<MovieContent> previewMoviesList;
 
-  const PreviewMovies({Key key,String this.title,  this.previewMoviesList}) : super(key: key);
-
+  const PreviewMovies({Key key, String this.title, this.previewMoviesList})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Padding(
           padding: EdgeInsets.only(left: 20),
           child: Text(
             title,
-            style: TextStyle(color: AppColors.white, fontWeight: FontWeight.bold, fontSize: 18,),
+            style: Theme.of(context).textTheme.headline1,
           ),
         ),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Container(
           height: 120,
           child: ListView.builder(
-            shrinkWrap: true,
+              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: previewMoviesList.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
                   child: Container(
                       height: 120,
-                      child:
-                      Stack(
+                      child: Stack(
                         children: [
                           CircleAvatar(
                               radius: 50.0,
                               backgroundColor: Colors.red,
                               child: CircleAvatar(
                                 radius: 48.0,
-                                backgroundImage: NetworkImage(previewMoviesList[index].imageUrl),
+                                backgroundImage: NetworkImage(
+                                    previewMoviesList[index].imageUrl),
                               )),
                           Positioned(
-                            bottom: 10,
-                              child: Image(image: NetworkImage(previewMoviesList[index].imageLogoUrl),height: 20,width: 100,fit: BoxFit.cover,alignment: Alignment.center,)),
+                              bottom: 10,
+                              child: Image(
+                                image: NetworkImage(
+                                    previewMoviesList[index].imageLogoUrl),
+                                height: 20,
+                                width: 100,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.center,
+                              )),
                         ],
-                      )
-                  ),
+                      )),
                 );
               }),
         )
